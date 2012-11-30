@@ -1,4 +1,10 @@
 Dvds::Application.routes.draw do
+  resources :line_items
+
+
+  resources :carts
+
+
   get "users/new"
 
   get "welcome/home"
@@ -8,6 +14,8 @@ Dvds::Application.routes.draw do
   resources :products
   resources :users
   resources :sessions
+
+  match '/your_cart' => "carts#your_cart", :as => "your_cart"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
