@@ -3,7 +3,7 @@
 <h1>Listing products</h1>
 
 <table>
-  <tr>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <th>UserID</th>
     <th>Name</th>
     <th>Description</th>
@@ -14,15 +14,14 @@
   </tr>
 
 <% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.description %></td>
-    <td><%= product.price %></td>
-    <td><%= link_to 'Show', product %></td>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td class="list_description"><%= product.name %></td>
+    <td class="list_description"><%= product.description %></td>
+    <td class="list_description"><%= product.price %></td>
+    <td class="list_actions"><%= link_to 'Show', product %></td>
     <% if current_user and current_user.admin %>
-        <td><%= link_to 'Edit', edit_product_path(product)
-        %></td>
-        <td><%= link_to 'Destroy', product, method: :delete,
+        <td class="list_actions"><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td class="list_actions"><%= link_to 'Destroy', product, method: :delete,
                         data: {confirm: 'Are you sure?'} %></td>
     <% end %>
 
