@@ -1,4 +1,10 @@
 Dvds::Application.routes.draw do
+  get "book/action1"
+
+  get "book/action2"
+
+  get "admin/index"
+
   resources :line_items
 
 

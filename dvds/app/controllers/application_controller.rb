@@ -40,6 +40,8 @@ class ApplicationController < ActionController::Base
     else
       access_denied
     end
+
+
   end
 end
 
